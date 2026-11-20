@@ -10,7 +10,7 @@ A dark green palette with absinthe and apricot accents, lively animations, and a
 
 `HTML` · `CSS` · `JavaScript` · `three.js`
 
-&#x20; \</div>&#x20;
+&#x20; &#x20;
 
 ---
 
