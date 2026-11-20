@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Petite Manie – Restaurant à Fleurier</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f7f5ee;--surface:#fff;--ink:#17302a;--muted:#5b6b64;--line:#dfe3d6;--green:#17302a;--abs:#c9d8a0;--apricot:#e8a468;--on-green:#f3f1e6;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1c18;--surface:#17302a;--ink:#f3f1e6;--muted:#a9b8ae;--line:#2b4a41;--green:#0a1411;--on-green:#f3f1e6}}
+:root[data-theme="dark"]{--bg:#0f1c18;--surface:#17302a;--ink:#f3f1e6;--muted:#a9b8ae;--line:#2b4a41;--green:#0a1411;--on-green:#f3f1e6}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:5rem;height:auto}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.05rem/1.6 "DM Sans",system-ui,sans-serif}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;line-height:1.1;margin:0}
+a{color:inherit}
+.wrap{max-width:68rem;margin:0 auto;padding:0 1.25rem}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:4rem}
+.logo{font:700 1.4rem Fraunces,serif;text-decoration:none}
+.logo span{color:var(--apricot)}
+nav{display:flex;gap:1.4rem}
+nav a{text-decoration:none;font-weight:500;font-size:.95rem}
+nav a:hover{color:var(--apricot)}
+.btn{display:inline-block;padding:.85rem 1.6rem;border-radius:99px;font-weight:700;text-decoration:none;border:2px solid transparent;transition:transform .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn.p{background:var(--apricot);color:#17302a}
+.btn.s{border-color:var(--on-green);color:var(--on-green)}
+.hero{position:relative;overflow:hidden;background:radial-gradient(60rem 30rem at 85% 10%,#2c5a49 0,transparent 60%),var(--green);color:var(--on-green);min-height:calc(100svh - 4rem);display:flex;align-items:center;padding:4rem 0}
+.hero .wrap{position:relative;z-index:1}
+.eyebrow{display:inline-block;font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:.8rem;color:var(--abs);margin-bottom:1rem}
+.hero h1{font-size:clamp(3.2rem,11vw,7.5rem);font-weight:700;letter-spacing:-.03em}
+.hero h1 em{font-style:italic;font-weight:400;color:var(--apricot)}
+.hero p{max-width:34rem;font-size:1.2rem;color:#d5ddcf;margin:1.4rem 0 2rem}
+.cta{display:flex;flex-wrap:wrap;gap:.8rem}
+.days{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:2.5rem}
+.days b{font-weight:500;padding:.4rem 1rem;border:1px solid #ffffff40;border-radius:99px;background:#ffffff12}
+.days small{display:block;width:100%;color:var(--abs);letter-spacing:.1em;text-transform:uppercase;font-size:.75rem}
+.deco{position:absolute;right:-8rem;bottom:-8rem;width:34rem;max-width:90vw;opacity:.9;pointer-events:none}
+section{padding:5rem 0}
+.head{margin-bottom:2.2rem;max-width:40rem}
+.head h2{font-size:clamp(2.2rem,6vw,3.6rem)}
+.head p{color:var(--muted);margin:.7rem 0 0}
+.tabs{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.6rem}
+.tabs button{font:500 1rem "DM Sans",sans-serif;padding:.6rem 1.3rem;border-radius:99px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
+.tabs button[aria-selected="true"]{background:var(--green);color:var(--on-green);border-color:var(--green)}
+.items{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,22rem),1fr));gap:.9rem}
+.item{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:1.1rem 1.25rem}
+.item div{display:flex;justify-content:space-between;gap:1rem;align-items:baseline}
+.item h3{font-size:1.2rem}
+.item .pr{font:700 1.15rem Fraunces,serif;color:var(--apricot);white-space:nowrap}
+.item p{margin:.35rem 0 0;color:var(--muted);font-size:.95rem}
+.tag{display:inline-block;margin-top:.5rem;font-size:.75rem;font-weight:700;padding:.15rem .6rem;border-radius:99px;background:var(--abs);color:#17302a}
+.note{margin-top:1.4rem;color:var(--muted);font-size:.95rem}
+.band{background:var(--green);color:var(--on-green)}
+.band .head p{color:#c4d0c8}
+.team{display:grid;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr));gap:1rem}
+.person{border:1px solid #ffffff30;border-radius:16px;padding:1.6rem;background:#ffffff0d}
+.av{width:3.6rem;height:3.6rem;border-radius:50%;background:var(--apricot);color:#17302a;display:grid;place-items:center;font:700 1.3rem Fraunces,serif;margin-bottom:1rem}
+.person h3{font-size:1.4rem}
+.person p{margin:.2rem 0 0;color:var(--abs)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:1rem}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:1.5rem;text-decoration:none;display:block}
+a.card:hover{border-color:var(--apricot)}
+.card small{display:block;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;font-size:.75rem;margin-bottom:.4rem}
+.card strong{font:600 1.25rem Fraunces,serif;overflow-wrap:anywhere}
+.soc{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1.4rem}
+.soc a{padding:.6rem 1.3rem;border:1px solid var(--line);border-radius:99px;text-decoration:none;font-weight:500}
+.soc a:hover{background:var(--green);color:var(--on-green)}
+footer{background:var(--green);color:#c4d0c8;padding:2rem 0;font-size:.9rem;text-align:center}
+footer p{margin:.2rem 0}
+@media(max-width:40rem){nav{gap:.9rem}nav a{font-size:.85rem}.logo{font-size:1.15rem}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
+.hero canvas{position:absolute;inset:0;width:100%;height:100%;z-index:0}
+.vig{position:absolute;inset:0;z-index:0;background:linear-gradient(90deg,#0a1411f0 0,#0a1411a0 45%,#0a141120 100%),radial-gradient(circle at 70% 50%,transparent 35%,#050a08b0 100%)}
+.hero.gl .deco{display:none}
+.parts{position:absolute;inset:0;overflow:hidden;z-index:0}
+.parts span{position:absolute;bottom:-20px;border-radius:50%;background:var(--abs);opacity:0;animation:fl linear infinite}
+@keyframes fl{0%{transform:translateY(0);opacity:0}15%{opacity:.35}100%{transform:translateY(-110vh) translateX(30px);opacity:0}}
+@keyframes up{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+.hero .wrap>*{animation:up .9s cubic-bezier(.2,.7,.2,1) both}
+.hero .wrap>:nth-child(2){animation-delay:.12s}.hero .wrap>:nth-child(3){animation-delay:.24s}.hero .wrap>:nth-child(4){animation-delay:.36s}.hero .wrap>:nth-child(5){animation-delay:.5s}
+.btn.p{box-shadow:0 0 0 0 #e8a46888;animation:pulse 2.6s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 14px #e8a46800}100%{box-shadow:0 0 0 0 #e8a46800}}
+.mq{background:var(--apricot);color:#17302a;overflow:hidden;white-space:nowrap;padding:.9rem 0;font:600 1.3rem Fraunces,serif}
+.mq div{display:inline-block;animation:mq 30s linear infinite}
+.mq span{margin:0 1.4rem}
+@keyframes mq{to{transform:translateX(-50%)}}
+.rv{opacity:0;transform:translateY(30px);transition:opacity .8s,transform .8s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+.item{animation:up .6s backwards;animation-delay:var(--d,0ms);transition:transform .25s,border-color .25s}
+.item:hover{transform:translateY(-4px);border-color:var(--apricot)}
+.av{transition:transform .4s}.person:hover .av{transform:rotate(-8deg) scale(1.1)}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <a class="logo" href="#accueil">Petite <span>Manie</span></a>
+  <nav aria-label="Navigation principale"><a href="#menu">Notre menu</a><a href="#equipe">Équipe</a><a href="#contact">Contact</a></nav>
+</div></header>
+
+<main>
+<section class="hero" id="accueil">
+  <canvas id="stage" aria-hidden="true"></canvas><div class="vig" aria-hidden="true"></div><div class="parts" aria-hidden="true"></div>
+  <svg class="deco" viewBox="0 0 400 400" aria-hidden="true"><circle cx="200" cy="200" r="190" fill="none" stroke="#c9d8a0" stroke-opacity=".35" stroke-width="2"/><circle cx="200" cy="200" r="140" fill="#c9d8a0" fill-opacity=".14"/><circle cx="200" cy="200" r="85" fill="#e8a468" fill-opacity=".85"/><path d="M200 115c40 30 40 140 0 170-40-30-40-140 0-170Z" fill="#17302a" fill-opacity=".35"/></svg>
+  <div class="wrap">
+    <span class="eyebrow">Restaurant · Fleurier</span>
+    <h1>Petite <em>Manie</em></h1>
+    <p>Salades fraîches, burgers aux buns maison, tartares et desserts du jour : une cuisine généreuse, avec des options végétariennes et végétaliennes.</p>
+    <div class="cta"><a class="btn p" href="#menu">Voir notre menu</a><a class="btn s" href="#contact">Nous contacter</a></div>
+    <div class="days"><small>Ouvert</small><b>Vendredi</b><b>Samedi</b><b>Dimanche</b></div>
+  </div>
+</section>
+
+<div class="mq" aria-hidden="true"><div id="mq"></div></div>
+
+<section id="menu"><div class="wrap">
+  <div class="head"><h2>Notre menu</h2><p>Des plats faits maison, servis avec légumes et garniture à choix.</p></div>
+  <div class="tabs" role="tablist" id="tabs"></div>
+  <div class="items" id="items" role="tabpanel"></div>
+  <p class="note">Tous nos plats* sont servis avec des légumes et une garniture à choix. *Garnitures : frites maison, riz ou pâtes.</p>
+</div></section>
+
+<section class="band" id="equipe"><div class="wrap">
+  <div class="head"><h2>Notre équipe</h2></div>
+  <div class="team">
+    <div class="person"><div class="av">MF</div><h3>Melanie Fernandes</h3><p>Directrice</p></div>
+    <div class="person"><div class="av">L</div><h3>Laurent</h3><p>Serveur et cuisinier</p></div>
+    <div class="person"><div class="av">M</div><h3>Mélanie</h3><p>Spécialiste en restauration</p></div>
+  </div>
+</div></section>
+
+<section id="contact"><div class="wrap">
+  <div class="head"><h2>Où nous trouver</h2><p>Réservez ou passez nous voir du vendredi au dimanche.</p></div>
+  <div class="cards">
+    <a class="card" href="tel:+41328611717"><small>Téléphone</small><strong>+41 32 861 17 17</strong></a>
+    <a class="card" href="mailto:info@petitemanie.ch"><small>E-mail</small><strong>info@petitemanie.ch</strong></a>
+    <a class="card" href="https://www.google.com/maps/search/?api=1&amp;query=Rue+de+la+Place-d'Armes+7+2114+Fleurier" target="_blank" rel="noopener"><small>Adresse</small><strong>Rue de la Place-d’Armes 7<br>2114 Fleurier</strong></a>
+  </div>
+  <div class="soc"><a href="https://www.facebook.com/profile.php?id=61561281293914" target="_blank" rel="noopener">Facebook</a><a href="https://www.instagram.com/petitemanie_restaurant" target="_blank" rel="noopener">Instagram</a></div>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  <p>Photos : Stéphanie Wenker Photography</p>
+  <p>Copyright ©2024 Petite Manie Sàrl, All Rights Reserved</p>
+</div></footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+const V="Végétarien",VG="Végétalien";
+const MENU={
+"Entrées":[["Salade Verte","5.00","",VG],["Salade Mêlée","8.00","",VG],["Soupe froide du jour","8.00","",""],["Tartine grecque","9.00","Feta, oignon rouge, tomate et olive",VG],["Salade de chèvre chaud","11.00","Servi avec toast et beurre",""]],
+"Plats":[["Grande salade verte","10.00","",VG],["Grande salade mêlée","13.00","",""],["Soupe froide du jour","13.00","",V],["Tartine à partager","14.00","Feta, oignon rouge, tomate et olive",V],["Salade de chèvre chaud","16.00","",V],["Burger végétarien","20.00","Buns maison, sauce cocktail, galette betterave/quinoa, oignons confits à la cannelle, cornichon et salade, servi avec frites",V],["Tartare végétarien","24.00","Betterave, haricots rouges, oignons et cornichons. Servi avec toasts et frites",V],["Burger grec","24.00","Buns maison, mayonnaise, hamburger de bœuf, oignons rouges, feta, tomate et salade, servi avec frites",""],["Burger d’été","25.00","Buns maison, cocktail, poulet pané, avocat, oignons, tomate et salade. Servi avec frites",""],["Steak de bœuf*","31.00","Beurre moutarde, thym et miel",""],["Tartare de Bufflonne","32.00","Servi avec toasts et frites maison",""],["Filet de truite*","32.00","Sauce au citron",""],["Filet de truite*","35.00","Sauce à l’absinthe",""]],
+"Menu enfant":[["Petite sirène*","12.00","Pâtes au thon",""],["Petit aventurier*","12.00","Boulettes de courgette maison",""],["Petit chasseur*","12.00","Mini burger",""]],
+"Desserts":[["Tarte du jour","4.50","",""],["Tiramisu du jour","7.00","",""],["Crème brûlée","7.50","",""],["Parfait mocca flambé","7.50","",""],["Dessert du jour","","",""]]
+};
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const tabs=document.getElementById("tabs"),items=document.getElementById("items");
+function show(cat){
+  [...tabs.children].forEach(b=>b.setAttribute("aria-selected",b.textContent===cat));
+  items.innerHTML=MENU[cat].map(([n,p,d,t],i)=>`<article class="item" style="--d:${i*45}ms"><div><h3>${esc(n)}</h3><span class="pr">${esc(p)}</span></div>${d?`<p>${esc(d)}</p>`:""}${t?`<span class="tag">${t}</span>`:""}</article>`).join("");
+}
+Object.keys(MENU).forEach(c=>{const b=document.createElement("button");b.type="button";b.role="tab";b.textContent=c;b.onclick=()=>show(c);tabs.appendChild(b)});
+show("Entrées");
+(function(){
+const hero=document.getElementById('accueil'),cv=document.getElementById('stage'),still=matchMedia('(prefers-reduced-motion:reduce)').matches;
+const w=['Fait maison','Végétarien','Végétalien','Fleurier','Vendredi · Samedi · Dimanche'].map(s=>'<span>'+s+'</span><span>✦</span>').join('');
+document.getElementById('mq').innerHTML=w+w;
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
+document.querySelectorAll('.head,.person,.card,.soc,.note,.tabs').forEach(el=>{el.classList.add('rv');io.observe(el)});
+const parts=hero.querySelector('.parts');
+for(let i=0;i<16;i++){const s=document.createElement('span'),z=4+Math.random()*10;s.style.cssText='left:'+Math.random()*100+'%;width:'+z+'px;height:'+z+'px;animation-duration:'+(9+Math.random()*10)+'s;animation-delay:-'+Math.random()*12+'s';parts.appendChild(s)}
+if(!window.THREE)return;
+let r;try{r=new THREE.WebGLRenderer({canvas:cv,alpha:true,antialias:true})}catch(e){return}
+hero.classList.add('gl');
+const sc=new THREE.Scene(),cam=new THREE.PerspectiveCamera(32,1,.1,50);cam.position.set(0,2.4,9);cam.lookAt(0,0,0);
+sc.add(new THREE.AmbientLight(0xffffff,.6));
+const key=new THREE.DirectionalLight(0xffe2b8,1.1);key.position.set(4,6,5);sc.add(key);
+const rim=new THREE.PointLight(0xc9d8a0,1.3,25);rim.position.set(-5,2,-4);sc.add(rim);
+const g=new THREE.Group(),mat=(c,q)=>new THREE.MeshStandardMaterial({color:c,roughness:q||.7}),
+put=(geo,m,y,sy)=>{const o=new THREE.Mesh(geo,m);o.position.y=y;if(sy)o.scale.y=sy;g.add(o);return o};
+const bun=mat(0xd9954a,.55),R=1.3;
+put(new THREE.SphereGeometry(R,48,24,0,Math.PI*2,Math.PI/2,Math.PI/2),bun,-.55,.45);
+put(new THREE.CylinderGeometry(R+.05,R+.05,.32,48),mat(0x4a2a1b,.9),-.4);
+const lt=put(new THREE.TorusGeometry(R+.02,.13,12,64),mat(0x7fb35a),-.2);lt.rotation.x=Math.PI/2;
+put(new THREE.CylinderGeometry(R,R,.1,48),mat(0xd8412f,.5),-.08);
+put(new THREE.SphereGeometry(R,48,24,0,Math.PI*2,0,Math.PI/2),bun,0,.85);
+const sm=mat(0xf4e6c0,.6);
+for(let i=0;i<28;i++){const th=.12+Math.random()*1.05,ph=Math.random()*6.283,o=new THREE.Mesh(new THREE.SphereGeometry(1,8,6),sm);o.scale.set(.09,.045,.05);o.position.set(R*1.01*Math.sin(th)*Math.cos(ph),R*.85*1.01*Math.cos(th),R*1.01*Math.sin(th)*Math.sin(ph));o.rotation.y=-ph;g.add(o)}
+sc.add(g);
+let base=0;
+if(still)g.rotation.set(.38,.6,0);
+function fit(){const W=hero.clientWidth,H=hero.clientHeight,wide=W>860;r.setPixelRatio(Math.min(devicePixelRatio,2));r.setSize(W,H,false);cam.aspect=W/H;cam.updateProjectionMatrix();g.position.x=wide?2.3:0;base=wide?0:1.1;g.position.y=base;g.scale.setScalar(wide?1:.85);if(still)r.render(sc,cam)}
+fit();new ResizeObserver(fit).observe(hero);
+let vis=true;new IntersectionObserver(e=>{vis=e[0].isIntersecting}).observe(hero);
+const clock=new THREE.Clock();
+if(!still)(function loop(){requestAnimationFrame(loop);if(!vis||document.hidden)return;const t=clock.getElapsedTime();g.rotation.y=t*.6;g.rotation.x=.38+Math.sin(t*.7)*.08;g.position.y=base+Math.sin(t*1.2)*.12;r.render(sc,cam)})();
+})();
+</script>
+</body>
+</html>
