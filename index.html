@@ -111,7 +111,7 @@ footer p{margin:.2rem 0}
     <h1>Petite <em>Manie</em></h1>
     <p>Salades fraîches, burgers aux buns maison, tartares et desserts du jour : une cuisine généreuse, avec des options végétariennes et végétaliennes.</p>
     <div class="cta"><a class="btn p" href="#menu">Voir notre menu</a><a class="btn s" href="#contact">Nous contacter</a></div>
-    <div class="days"><small>Ouvert</small><b>Tous</b><b>Les</b><b>Jours</b></div>
+    <div class="days"><small>Ouvert</small><b>Tous Les Jours</b><b>8h-22h</b></div>
   </div>
 </section>
 
@@ -168,7 +168,7 @@ Object.keys(MENU).forEach(c=>{const b=document.createElement("button");b.type="b
 show("Entrées");
 (function(){
 const hero=document.getElementById('accueil'),cv=document.getElementById('stage'),still=matchMedia('(prefers-reduced-motion:reduce)').matches;
-const w=['Fait maison','Végétarien','Végétalien','Fleurier','Vendredi · Samedi · Dimanche'].map(s=>'<span>'+s+'</span><span>✦</span>').join('');
+const w=['Fait maison','Végétarien','Fleurier','Végétalien','Tous · Les · Jours'].map(s=>'<span>'+s+'</span><span>✦</span>').join('');
 document.getElementById('mq').innerHTML=w+w;
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
 document.querySelectorAll('.head,.person,.card,.soc,.note,.tabs').forEach(el=>{el.classList.add('rv');io.observe(el)});
